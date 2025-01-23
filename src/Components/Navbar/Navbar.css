@@ -1,0 +1,39 @@
+/* Styling for the list item */
+.hover-item {
+  position: relative;
+
+}
+
+.hover-item a {
+  display: inline-block; 
+  position: relative; 
+
+}
+
+.hover-item .hover-img {
+  display: none; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: 100px; 
+  height: auto; 
+  transition: opacity 0.3s ease; 
+}
+
+.hover-item:hover .hover-img {
+  display: block; /* Show the image on hover */
+  opacity: 1; /* Ensure it appears */
+}
+
+.hover-item .text-gray-800 {
+
+  position: relative; /* Positions the text relative to the parent (li) */
+  z-index: 1; /* Ensures text appears on top of the image */
+  color: var(--text-color, rgb(0, 0, 0)); /* Default text color */
+  transition: color 0.3s ease; /* Smooth transition for text color change */
+}
+
+.hover-item:hover .text-gray-800 {
+  color: var(--primary); /* Change text color on hover */
+}
