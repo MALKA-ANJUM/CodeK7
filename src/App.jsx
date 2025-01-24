@@ -1,17 +1,15 @@
-import "./App.css";
-import Footer from "./Components/Footer/Footer";
-import HeroBanner from "./Components/HeroBanner/HeroBanner";
-import HomeDescription from "./Components/HomeDescription/HomeDescription";
-import Navbar from "./Components/Navbar/Navbar";
-
+import { Footer, Navbar } from "./Components/layout";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Home from "./pages/Home";
 function App() {
 	return (
-		<div className="app">
+		<Router>
 			<Navbar />
-			<HeroBanner />
-			<HomeDescription />
+			<Routes>
+				<Route path="/" element={<Home />} />
+			</Routes>
 			<Footer />
-		</div>
+		</Router>
 	);
 }
 

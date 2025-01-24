@@ -1,5 +1,4 @@
 import React from 'react';
-import './HomeDescription.css';
 
 function HomeDescription() {
   return (
