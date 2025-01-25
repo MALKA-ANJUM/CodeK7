@@ -1,4 +1,4 @@
-import React from 'react';
+import scribble from '../../../assets/green-scribble-portfolio.svg'
 
 function HomeDescription() {
   return (
@@ -17,14 +17,13 @@ function HomeDescription() {
                 <br />
                 <span className="text-black font-semibold relative">
                     Explore our services...
-                    <span className="absolute top-0 right-0 w-40 h-16 bg-no-repeat bg-center" style={{ backgroundImage: "url('../../assets/green-scribble-portfolio.svg')" }}></span>
+                    <embed src={scribble} type="image/svg+xml" className="absolute top-0 right-0 w-[10rem] h-[4rem]" />
                 </span>
                 </p>
             </div>
             </div>
         </div>
     </section>
-
   )
 }
 
