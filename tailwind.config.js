@@ -8,6 +8,8 @@ export default {
     extend: {
       colors: {
         'theme-text2': 'var(--secondary)',
+        'primary': 'var(--primary)',
+        'secondary': 'var(--secondary)',
       },
     },
   },
