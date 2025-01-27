@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const FAQ = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
   const faqItems = [
     {
       question: 'Do you give free consultations?',
@@ -12,7 +14,7 @@ const FAQ = () => {
     },
     {
       question: 'Do you sign an NDA before starting a project?',
-      answer: 'Yes, we sign non-disclosure agreements (NDA) when we start a new project. We put great value on our client\'s privacy and security and ensure that everything related to your project will remain strictly confidential.',
+      answer: "Yes, we sign non-disclosure agreements (NDA) when we start a new project. We put great value on our client's privacy and security and ensure that everything related to your project will remain strictly confidential.",
     },
     {
       question: 'Can you redesign my existing web application?',
@@ -28,37 +30,45 @@ const FAQ = () => {
     },
   ];
 
+  const handleToggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="faq py-10">
+    <section className="faq py-10 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="section-title text-center mb-8">
-          <h2 className="text-3xl font-semibold">Frequently Asked Questions</h2>
+        <div className="section-title text-center mb-10">
+          <h2 className="text-4xl font-bold text-gray-800">Frequently Asked Questions</h2>
+          <p className="text-gray-600 mt-2">Find answers to common questions about our services</p>
         </div>
-        <div className="accordion accordion-flush" id="accordionFlushExample">
+        <div className="space-y-6 max-w-4xl mx-auto">
           {faqItems.map((faq, index) => (
-            <div key={index} className="accordion-item">
-              <h3 className="accordion-header" id={`flush-heading${index}`}>
-                <button
-                  className="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target={`#flush-collapse${index}`}
-                  aria-expanded="false"
-                  aria-controls={`flush-collapse${index}`}
-                >
-                  {faq.question}
-                </button>
-              </h3>
-              <div
-                id={`flush-collapse${index}`}
-                className="accordion-collapse collapse"
-                aria-labelledby={`flush-heading${index}`}
-                data-bs-parent="#accordionFlushExample"
+            <div
+              key={index}
+              className="border rounded-lg overflow-hidden shadow-md transition-all duration-300 bg-white"
+            >
+              <button
+                className="w-full text-left px-6 py-4 bg-gray-100 hover:bg-indigo-100 focus:outline-none focus:ring focus:ring-indigo-300 flex justify-between items-center"
+                onClick={() => handleToggle(index)}
               >
-                <div className="accordion-body">
-                  <p>{faq.answer}</p>
+                <span className="text-lg font-medium text-gray-800">{faq.question}</span>
+                <svg
+                  className={`w-6 h-6 transform transition-transform duration-300 ${
+                    openIndex === index ? 'rotate-180' : ''
+                  }`}
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {openIndex === index && (
+                <div className="px-6 py-5 bg-gray-50">
+                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
                 </div>
-              </div>
+              )}
             </div>
           ))}
         </div>

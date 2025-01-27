@@ -1,4 +1,5 @@
 import React from "react";
+import { CheckCircle } from "lucide-react";
 
 const steps = [
   {
@@ -59,30 +60,32 @@ const steps = [
 
 const DevProcess = () => {
   return (
-    <section className="bg-gray-50 py-16">
-      <div className="container w-4/5 mx-auto text-center px-6">
-        <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+    <section className="bg-gray-100 py-16">
+      <div className="container mx-auto text-center px-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
           Our Web Application Development Process
         </h2>
-        <p className="text-gray-600 max-w-3xl mx-auto mb-10">
-          We have a standard web application development process curated over
-          years of working on web application development projects. With a
-          streamlined, well-tested development process, we will use minimum
-          resources to develop custom web apps from scratch.
+        <p className="text-gray-700 max-w-3xl mx-auto mb-12 text-lg">
+          Our refined process ensures that your web application is built efficiently, maintaining high standards of design and functionality.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-white p-6 shadow-md rounded-lg text-left transition-all duration-500 w-full cursor-pointer hover:bg-primary ease-in-out hover:shadow-lg hover:-translate-y-1"
+              className="bg-white p-8 shadow-lg rounded-xl text-left transition-transform transform hover:scale-105 hover:bg-blue-100 hover:shadow-2xl"
             >
-              <div className="text-3xl font-bold text-blue-600 mb-2">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold text-2xl rounded-full mx-auto mb-6">
                 {step.number}
               </div>
-              <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
+                {step.title}
+              </h3>
+              <ul className="space-y-4">
                 {step.points.map((point, i) => (
-                  <li key={i}>{point}</li>
+                  <li key={i} className="flex items-start space-x-4 text-gray-600">
+                    <CheckCircle className="w-6 h-6 text-blue-500" />
+                    <span>{point}</span>
+                  </li>
                 ))}
               </ul>
             </div>

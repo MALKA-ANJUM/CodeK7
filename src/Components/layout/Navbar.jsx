@@ -1,87 +1,139 @@
 import { useState, useEffect } from "react";
 import Logo from "../../assets/K7 CodeLabs Logo -01.png";
-import HoverImg from '../../assets/architecture-after (2).svg';
 import { navLinks } from "../../constants";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-    const [isActive, setIsActive] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 50) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const toggleActiveClass = () => {
-        setIsActive(!isActive);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
     };
 
-    const removeActive = () => {
-        setIsActive(false);
-    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    return (
-        <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
-            isScrolled ? "bg-white border-b border-gray-300" : "bg-transparent"}`}
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  return (
+    <header
+      className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
+    >
+      <nav className="container mx-auto px-6 sm:px-10 lg:px-20 flex justify-between items-center h-16">
+        <Link to="/" className="flex items-center">
+          <img src={Logo} alt="Logo" className="h-10 sm:h-12" />
+        </Link>
+
+        <button
+          className="md:hidden flex items-center justify-center focus:outline-none"
+          onClick={toggleMenu}
+          aria-label="Toggle Navigation"
         >
-            <nav className="container mx-auto w-4/5 flex justify-between items-center">
-                <a href="#home" className="flex items-center">
-                    <img src={Logo} alt="Logo" className="h-20" />
-                </a>
-                <div className="md:hidden flex items-center">
-                    <button
-                        className="hamburger flex flex-col space-y-1"
-                        onClick={toggleActiveClass}
-                    >
-                        <span className="w-6 h-0.5 bg-black"></span>
-                        <span className="w-6 h-0.5 bg-black"></span>
-                        <span className="w-6 h-0.5 bg-black"></span>
-                    </button>
-                </div>
-                <ul
-                    className={`absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent md:flex space-y-4 md:space-y-0 md:space-x-6 p-6 md:p-0 transition-transform transform ${
-                        isActive ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-                    }`}
-                >
-                    {navLinks.map((nav, index) => (
-                        <li
-                            key={nav.id}
-                            className="font-poppins relative font-normal cursor-pointer text-[16px] text-black"
-                        >
-                            <Link to={nav.id}>{nav.title}</Link>
-                            <embed
-                                src={HoverImg}
-                                className="hover-img absolute hidden group-hover:block"
-                                type=""
-                            />
-                        </li>
-                    ))}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className={`w-6 h-6 transition-transform ${
+              isMenuOpen ? "rotate-90" : ""
+            }`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={
+                isMenuOpen
+                  ? "M6 18L18 6M6 6l12 12" 
+                  : "M4 6h16M4 12h16M4 18h16" 
+              }
+            />
+          </svg>
+        </button>
 
-                    <li onClick={removeActive} className="px-4">
-                        <a
-                            href="#getQuote"
-                            className="px-4 py-2 border rounded hover:text-white"
-                            style={{
-                                borderColor: "var(--primary)",
-                                color: "var(--primary)",
-                                hoverBackgroundColor: "var(--primary)",
-                            }}
-                        >
-                            Get a quote
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-    );
+        <ul className="hidden md:flex space-x-8 items-center">
+          {navLinks.map((nav) => (
+            <li key={nav.id} className="group relative">
+              <Link
+                to={nav.id}
+                className="text-gray-800 hover:text-primary transition font-medium"
+              >
+                {nav.title}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <a
+              href="#getQuote"
+              className="block w-full text-center px-4 py-2 bg-primary text-white rounded-lg shadow hover:shadow-lg transition"
+              >
+              Get a Quote
+            </a>
+          </li>
+        </ul>
+
+        <div
+          className={`fixed inset-y-0 right-0 w-3/4 sm:w-1/2 bg-white shadow-lg transform transition-transform md:hidden ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <button
+            className="absolute top-4 right-4 text-gray-800"
+            onClick={closeMenu}
+            aria-label="Close Menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <ul className="flex flex-col items-start p-6 space-y-6">
+            {navLinks.map((nav) => (
+              <li key={nav.id}>
+                <Link
+                  to={nav.id}
+                  className="text-gray-800 hover:text-primary transition font-medium"
+                  onClick={closeMenu}
+                >
+                  {nav.title}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <a
+                href="#getQuote"
+                className="block w-full text-center px-4 py-2 bg-primary text-white rounded-lg shadow hover:shadow-lg transition"
+                onClick={closeMenu}
+              >
+                Get a Quote
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  );
 };
 
 export default Navbar;

@@ -36,3 +36,65 @@ const ServiceItem = ({ title, description, image, animation, reverse, background
   
 
 export default ServiceItem
+
+// const ServiceItem = ({
+// 	title,
+// 	description,
+// 	image,
+// 	animation,
+// 	reverse = false,
+// 	backgroundColor = "#f9f9f9",
+// 	blockClass = "",
+//   }) => {
+// 	return (
+// 	  <section
+// 		className={`relative py-16 ${blockClass}`}
+// 		style={{ backgroundColor }}
+// 	  >
+// 		<div className="container mx-auto px-6 lg:px-12">
+// 		  <div
+// 			className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
+// 			  reverse ? "lg:flex-row-reverse" : ""
+// 			}`}
+// 		  >
+// 			<div
+// 			  className="space-y-6"
+// 			  data-aos={reverse ? "fade-left" : "fade-right"} // Animation hook (optional)
+// 			>
+// 			  <h2 className="text-3xl lg:text-5xl font-bold text-gray-800">
+// 				{title}
+// 			  </h2>
+// 			  <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
+// 				{description}
+// 			  </p>
+// 			  <button className="mt-4 px-6 py-3 bg-blue-600 text-white font-medium text-lg rounded-lg shadow-md hover:bg-blue-700 transition-all">
+// 				Learn More
+// 			  </button>
+// 			</div>
+  
+// 			<div
+// 			  className="relative group"
+// 			  data-aos={reverse ? "fade-right" : "fade-left"} // Animation hook (optional)
+// 			>
+// 			  <picture>
+// 				<source srcSet={image.webp} type="image/webp" />
+// 				<source srcSet={image.jpg} type="image/jpeg" />
+// 				<img
+// 				  src={image.jpg}
+// 				  alt="Service Visual"
+// 				  className="w-full h-auto rounded-xl shadow-lg transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+// 				  loading="lazy"
+// 				/>
+// 			  </picture>
+// 			  {animation && (
+// 				<div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-50 group-hover:opacity-75 transition-opacity duration-300"></div>
+// 			  )}
+// 			</div>
+// 		  </div>
+// 		</div>
+// 	  </section>
+// 	);
+//   };
+  
+//   export default ServiceItem;
+  
