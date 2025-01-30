@@ -19,7 +19,7 @@ const Footer = () => {
 
   return (
     <section className="bg-gray-100 py-16">
-		<div className="container mx-auto px-6 lg:px-20">
+		<div className="container w-4/5 mx-auto ">
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 			{/* Left Section - Contact Form */}
 				<div>

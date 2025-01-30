@@ -2,7 +2,7 @@ import AboutImage from '../../../assets/aboutbanner.jpg'
 
 const Banner = () => {
   return (
-    <section className="relative py-16 px-6 md:px-12 lg:px-24 flex items-center">
+    <section className="relative mt-14 py-16 px-6 md:px-12 lg:px-24 flex items-center">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
        
         <div className="relative">
