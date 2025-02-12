@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -18,122 +19,126 @@ const Footer = () => {
   };
 
   return (
-    <section className="bg-gray-100 py-16">
-		<div className="container mx-auto px-6 lg:px-20">
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-			{/* Left Section - Contact Form */}
-				<div>
-					<h2 className="text-3xl font-bold text-gray-800">Get in Touch</h2>
-					<p className="text-gray-600 mt-2">We’d love to hear from you.</p>
+    <footer className="bg-gray-900 text-white py-16">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+        <div className="flex flex-col lg:flex-row justify-between items-center space-y-12 lg:space-y-0 lg:space-x-20">
+          {/* Left Section - Contact Form */}
+          <div className="w-full lg:w-1/2">
+            <h2 className="text-4xl font-bold text-center lg:text-left mb-6">
+              Let’s Talk
+            </h2>
+            <p className="text-gray-400 text-center lg:text-left mb-8">
+              Have questions or want to work with us? Send us a message!
+            </p>
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white rounded-lg p-6 shadow-lg space-y-6"
+            >
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  required
+                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your Email"
+                  required
+                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Your Message"
+                  rows="4"
+                  required
+                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
 
-					<form onSubmit={handleSubmit} className="mt-6 bg-white p-6 rounded-lg shadow-md">
-						{/* Name Field */}
-						<div className="mb-4">
-							<label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="name">
-								Name
-							</label>
-							<input
-								type="text"
-								id="name"
-								name="name"
-								value={formData.name}
-								onChange={handleChange}
-								required
-								className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-								/>
-						</div>
-
-						{/* Email Field */}
-						<div className="mb-4">
-							<label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="email">
-								Email
-							</label>
-							<input
-							type="email"
-							id="email"
-							name="email"
-							value={formData.email}
-							onChange={handleChange}
-							required
-							className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-							/>
-						</div>
-
-					{/* Message Field */}
-						<div className="mb-4">
-							<label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="message">
-								Message
-							</label>
-							<textarea
-								id="message"
-								name="message"
-								value={formData.message}
-								onChange={handleChange}
-								required
-								rows="4"
-								className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-								>
-							</textarea>
-						</div>
-
-						{/* Submit Button */}
-						<button type="submit"
-							className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-						>
-							Send Message
-						</button>
-					</form>
-				</div>
-
-				{/* Right Section - Contact Info */}
-				<div>
-					<h3 className="text-xl font-semibold text-gray-800">Contact Information</h3>
-					<p className="text-gray-600 mt-2">Reach out to us through any of the following ways.</p>
-
-					{/* Address */}
-					<div className="mt-6">
-						<p className="font-semibold text-gray-800">Address:</p>
-						<p className="text-gray-600">Your Company Address, City, Country</p>
-					</div>
-
-					{/* Email */}
-					<div className="mt-4">
-						<p className="font-semibold text-gray-800">Email:</p>
-						<a href="mailto:contact@yourdomain.com" className="text-blue-600 hover:underline">
-							contact@yourdomain.com
-						</a>
-					</div>
-
-					{/* Phone */}
-					<div className="mt-4">
-						<p className="font-semibold text-gray-800">Phone:</p>
-						<a href="tel:+1234567890" className="text-blue-600 hover:underline">
-							+123 456 7890
-						</a>
-					</div>
-
-					{/* Social Media */}
-					<div className="mt-6">
-						<h3 className="text-lg font-semibold text-gray-800">Follow Us</h3>
-						<div className="flex space-x-4 mt-2">
-							<a href="#" className="text-gray-600 hover:text-gray-900">
-								<i className="fab fa-facebook-f text-xl"></i>
-							</a>
-							<a href="#" className="text-gray-600 hover:text-gray-900">
-								<i className="fab fa-twitter text-xl"></i>
-							</a>
-							<a href="#" className="text-gray-600 hover:text-gray-900">
-								<i className="fab fa-linkedin-in text-xl"></i>
-							</a>
-							<a href="#" className="text-gray-600 hover:text-gray-900">
-								<i className="fab fa-instagram text-xl"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    </section>
+          {/* Right Section - Info and Socials */}
+          <div className="w-full lg:w-1/2 text-center lg:text-left">
+            <h3 className="text-3xl font-semibold mb-6">Stay Connected</h3>
+            <p className="text-gray-400 mb-8">
+              Reach out to us through our contact details or follow us on social
+              media to stay updated!
+            </p>
+            <div className="space-y-4">
+              <p>
+                <span className="font-bold">Email:</span>{" "}
+                <a
+                  href="mailto:contact@yourdomain.com"
+                  className="text-blue-400 hover:underline"
+                >
+                  contact@yourdomain.com
+                </a>
+              </p>
+              <p>
+                <span className="font-bold">Phone:</span>{" "}
+                <a
+                  href="tel:+1234567890"
+                  className="text-blue-400 hover:underline"
+                >
+                  +123 456 7890
+                </a>
+              </p>
+              <p>
+                <span className="font-bold">Address:</span> 123 Main Street, City, Country
+              </p>
+            </div>
+            <div className="flex justify-center lg:justify-start mt-8 space-x-4">
+              <a
+                href="#"
+                className="p-3 bg-gray-800 hover:bg-gray-700 rounded-full"
+              >
+                <FaFacebookF size={20} />
+              </a>
+              <a
+                href="#"
+                className="p-3 bg-gray-800 hover:bg-gray-700 rounded-full"
+              >
+                <FaTwitter size={20} />
+              </a>
+              <a
+                href="#"
+                className="p-3 bg-gray-800 hover:bg-gray-700 rounded-full"
+              >
+                <FaLinkedinIn size={20} />
+              </a>
+              <a
+                href="#"
+                className="p-3 bg-gray-800 hover:bg-gray-700 rounded-full"
+              >
+                <FaInstagram size={20} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-12 text-center text-gray-600">
+        <p>© {new Date().getFullYear()} Your Company. All rights reserved.</p>
+      </div>
+    </footer>
   );
 };
 
