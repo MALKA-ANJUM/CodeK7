@@ -16,7 +16,7 @@ const features = [
 const WhyUs = () => {
   return (
     <section className="bg-gradient-to-b from-blue-50 via-white to-gray-50 py-20">
-      <div className="container mx-auto px-6 text-center">
+      <div className="container w-4/5 mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
           Why K7CodeLabs is the Best Web Technology Partner for You
         </h2>

@@ -61,7 +61,7 @@ const steps = [
 const DevProcess = () => {
   return (
     <section className="bg-gray-100 py-16">
-      <div className="container mx-auto text-center px-6">
+      <div className="container w-4/5 mx-auto text-center px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
           Our Web Application Development Process
         </h2>

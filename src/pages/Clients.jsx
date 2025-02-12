@@ -1,10 +1,10 @@
-import React from 'react'
+import Client from '../Components/shared/OurClients/Client';
 
 const Clients = () => {
   return (
-    <div>
-      
-    </div>
+	<>
+	<Client />
+	</>
   )
 }
 
