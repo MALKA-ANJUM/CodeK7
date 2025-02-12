@@ -2,7 +2,6 @@ import AboutImage from "../../../assets/aboutbanner.jpg";
 
 const Banner = () => {
   return (
-<<<<<<< HEAD
     <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 text-white mt-20">
       <div className="container mx-auto px-6 md:px-12 lg:px-20 py-16 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
         {/* Left Section - Text */}
@@ -30,13 +29,6 @@ const Banner = () => {
               Contact Us
             </button>
           </div>
-=======
-    <section className="relative mt-14 py-16 px-6 md:px-12 lg:px-24 flex items-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-8">
-       
-        <div className="relative">
-            <img src={AboutImage} alt="About Us" className="rounded-lg shadow-lg object-cover w-full" />
->>>>>>> db5598ee0f82ac46ccf7b8ec4c1f7d70e93d8b5b
         </div>
 
         {/* Right Section - Image */}

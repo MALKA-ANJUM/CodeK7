@@ -19,7 +19,6 @@ const Footer = () => {
   };
 
   return (
-<<<<<<< HEAD
     <footer className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col lg:flex-row justify-between items-center space-y-12 lg:space-y-0 lg:space-x-20">
@@ -76,15 +75,6 @@ const Footer = () => {
               </button>
             </form>
           </div>
-=======
-    <section className="bg-gray-100 py-16">
-		<div className="container w-4/5 mx-auto ">
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-			{/* Left Section - Contact Form */}
-				<div>
-					<h2 className="text-3xl font-bold text-gray-800">Get in Touch</h2>
-					<p className="text-gray-600 mt-2">We’d love to hear from you.</p>
->>>>>>> db5598ee0f82ac46ccf7b8ec4c1f7d70e93d8b5b
 
           {/* Right Section - Info and Socials */}
           <div className="w-full lg:w-1/2 text-center lg:text-left">
